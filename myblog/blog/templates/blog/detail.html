@@ -1,0 +1,6 @@
+{% if the_blog %}
+    <h1>{{ the_blog.headline }}</h1>
+    <p>{{ the_blog.blog_content }}</p>
+{% else %}
+    <p>Blog not found</p>
+{% endif %}

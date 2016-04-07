@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>crazyAxe' blog </title>
+</head>
+<body>
+    <h> Latest Blog</h>
+    {% if latest_blog_list %}
+        <ul>
+            {% for blog in latest_blog_list %}
+            <li><a href="{% url 'blog:detail' blog.id %}" />{{ blog.headline }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>NO blogs are available.</p>
+    {% endif %}
+
+</body>
+</html>

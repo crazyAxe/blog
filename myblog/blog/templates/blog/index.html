@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>crazyAxe' blog </title>
-</head>
-<body>
+{% extends "blog/base.html" %}
+
+{% block content %}
     <h> Latest Blog</h>
     {% if latest_blog_list %}
         <ul>
             {% for blog in latest_blog_list %}
-            <li><a href="{% url 'blog:detail' blog.id %}" />{{ blog.headline }}</li>
+                <li><h2><a href="{% url 'blog:detail' blog.id %}" >{{ blog.headline }}</a></h2></li>
+
+                <p>{{ blog.digest }}</p>
             {% endfor %}
         </ul>
     {% else %}
-        <p>NO blogs are available.</p>
+        <p>No blogs are available.</p>
     {% endif %}
-
-</body>
-</html>
+{% endblock %}

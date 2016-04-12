@@ -7,7 +7,7 @@ class User(models.Model):
     name = models.CharField(max_length=20)
     email = models.EmailField()
     password = models.CharField(max_length=20)
-    image = models.ImageField()
+    image = models.ImageField(null=True)
 
     def __str__(self):
         return self.name
@@ -38,10 +38,10 @@ class Blog(models.Model):
 
 
 class Comments(models.Model):
-    visitor_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    visitor_name = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     comment = models.TextField(max_length=200)
-    pud_date = models.DateTimeField()
+    pud_date = models.DateTimeField(auto_now=True)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.comment
-

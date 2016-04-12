@@ -1,6 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
 {% if the_blog %}
-    <h1>{{ the_blog.headline }}</h1>
+    <h2>{{ the_blog.headline }}</h2>
+    <p>By&nbsp;{{ the_blog.author }}. &nbsp;&nbsp; {{ the_blog.create_time }} </p>
     <p>{{ the_blog.blog_content }}</p>
+    <button type="button" name="comment" onclick="window.location.href='add_commment.html'">add comment</button>
 {% else %}
     <p>Blog not found</p>
 {% endif %}
+
+{% endblock %}

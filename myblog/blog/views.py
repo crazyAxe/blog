@@ -4,7 +4,6 @@ from django.shortcuts import get_object_or_404, render
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.views import generic
-import logging
 
 
 class IndexView(generic.ListView):
@@ -26,3 +25,7 @@ class DetailView(generic.DetailView):
 #     the_blog = Blog.objects.get(id=pk)
 #     context = {'the_blog': the_blog}
 #     return render(request, 'blog/detail.html', context)
+def add_comment(request, pk):
+    the_blog = Blog.objects.get(id=pk)
+    context = {'the_blog': the_blog}
+    return render(request, 'blog/add_comment.html', context)
